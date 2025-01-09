@@ -557,17 +557,155 @@ def write_space(t):
     t.pu()
     t.fd(60)
 
+def write_exclamation(t):
+    t.fd(25)
+    t.lt(90)
+    t.pd()
+    t.fd(30)
+    t.pu()
+    t.fd(20)
+    t.pd()
+    t.fd(50)
+    t.pu()
+    t.bk(100)
+    t.rt(90)
+    t.fd(35)
+
+def write_colon(t):
+    t.fd(25)
+    t.lt(90)
+    t.fd(15)
+    t.pd()
+    t.fd(25)
+    t.pu()
+    t.fd(20)
+    t.pd()
+    t.fd(25)
+    t.pu()
+    t.bk(85)
+    t.rt(90)
+    t.fd(35)
+
+def write_right_bracket(t):
+    t.pd()
+    t.lt(90)
+    t.fd(100)
+    t.rt(90)
+    t.fd(50)
+    t.bk(50)
+    t.rt(90)
+    t.fd(100)
+    t.lt(90)
+    t.fd(50)
+    t.pu()
+    t.fd(10)
+
+def write_left_bracket(t):
+    t.lt(90)
+    t.fd(100)
+    t.rt(90)
+    t.pd()
+    t.fd(50)
+    t.rt(90)
+    t.fd(100)
+    t.rt(90)
+    t.fd(50)
+    t.rt(180)
+    t.pu()
+    t.fd(60)
+
+def write_unknown_character(t):
+    t.pd()
+    t.fd(50)
+    t.pu()
+    t.fd(10)
+
+def write_character(char, t):
+    if char == 'A':
+        write_letter_a(t)
+    elif char == 'B':
+        write_letter_b(t)
+    elif char == 'C':
+        write_letter_c(t)
+    elif char == 'D':
+        write_letter_d(t)
+    elif char == 'E':
+        write_letter_e(t)
+    elif char == 'F':
+        write_letter_f(t)
+    elif char == 'G':
+        write_letter_g(t)
+    elif char == 'H':
+        write_letter_h(t)
+    elif char == 'I':
+        write_letter_i(t)
+    elif char == 'J':
+        write_letter_j(t)
+    elif char == 'K':
+        write_letter_k(t)
+    elif char == 'L':
+        write_letter_l(t)
+    elif char == 'M':
+        write_letter_m(t)
+    elif char == 'N':
+        write_letter_n(t)
+    elif char == 'O':
+        write_letter_o(t)
+    elif char == 'P':
+        write_letter_p(t)
+    elif char == 'Q':
+        write_letter_q(t)
+    elif char == 'R':
+        write_letter_r(t)
+    elif char == 'S':
+        write_letter_s(t)
+    elif char == 'T':
+        write_letter_t(t)
+    elif char == 'U':
+        write_letter_u(t)
+    elif char == 'V':
+        write_letter_v(t)
+    elif char == 'W':
+        write_letter_w(t)
+    elif char == 'X':
+        write_letter_x(t)
+    elif char == 'Y':
+        write_letter_y(t)
+    elif char == 'Z':
+        write_letter_z(t)
+    elif char == ' ':
+        write_space(t)
+    elif char == '!':
+        write_exclamation(t)
+    elif char ==':':
+        write_colon(t)
+    elif char =='[':
+        write_right_bracket(t)
+    elif char == ']':
+        write_left_bracket(t)
+    else:
+        write_unknown_character(t)
+
+def write_message(message, t):
+    t.pu()
+    t.bk(600)
+    char_number = 0
+    message_to_print = message.upper()
+    for char in message_to_print:
+        write_character(char, t)
+        char_number += 1
+        if char_number >= 19:
+            t.bk(1140)
+            t.rt(90)
+            t.fd(110)
+            t.lt(90)
+            char_number = 0
+
 
 # turtle directions
-write_letter_d(my_turtle)
-write_letter_e(my_turtle)
-write_letter_s(my_turtle)
-write_letter_t(my_turtle)
-write_letter_i(my_turtle)
-write_letter_n(my_turtle)
-write_letter_y(my_turtle)
+my_message = 'HELLO WORLD! :]'
 
-
+write_message(my_message, my_turtle)
 
 # finish
 turtle.done()
